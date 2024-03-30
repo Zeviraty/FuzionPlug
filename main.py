@@ -17,7 +17,7 @@ os.system("mkdir ~/fuziontemp")
 os.system("git clone -n --depth=1 --filter=tree:0  https://github.com/ArtyuiCraft/fuzionplug-plugin-repo ~/fuziontemp")
 files = subprocess.check_output("cd ~/fuziontemp && git ls-tree --full-name --name-only -r HEAD | head", shell=True, universal_newlines=True).strip().split("\n")
 plugins = []
-if not os.path.exists(os.path.expanduser('~/.config/fuzion/plugins/pluglib.py')) or os.path.exists(os.path.expanduser('~/.config/fuzion/plugins/_fzfmenus.py')):
+if not os.path.exists(os.path.expanduser('~/.config/fuzion/plugins/pluglib.py')) or not os.path.exists(os.path.expanduser('~/.config/fuzion/plugins/_fzfmenus.py')):
     os.system(f"cd ~/fuziontemp && git sparse-checkout set --no-cone _fzfmenus.py pluglib.py && git checkout")
     os.system("mkdir ~/fuziontemp")
     move_files_to_plugin_folder()
