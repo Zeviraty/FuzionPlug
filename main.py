@@ -14,7 +14,7 @@ def move_files_to_plugin_folder():
         shutil.move(source_path, target_path)
 os.system("rm -rf ~/fuziontemp")
 os.system("mkdir ~/fuziontemp")
-os.system("git clone -n --depth=1 --filter=tree:0  https://github.com/ArtyuiCraft/fuzionplug-plugin-repo ~/fuziontemp")
+os.system("git clone -n --depth=1 --filter=tree:0  https://github.com/Zeviraty/fuzionplug-plugin-repo ~/fuziontemp")
 files = subprocess.check_output("cd ~/fuziontemp && git ls-tree --full-name --name-only -r HEAD | head", shell=True, universal_newlines=True).strip().split("\n")
 plugins = []
 if not os.path.exists(os.path.expanduser('~/.config/fuzion/plugins/pluglib.py')) or not os.path.exists(os.path.expanduser('~/.config/fuzion/plugins/_fzfmenus.py')):
